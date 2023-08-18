@@ -2,6 +2,8 @@
     "manufacturer": "David H. Bronke",
     "keyboard_name": "lynx_numpad",
     "maintainer": "whitelynx",
+    "development_board": "blackpill_f411",
+    "processor": "STM32F411",
     "bootloader": "stm32-dfu",
     "diode_direction": "COL2ROW",
     "features": {
@@ -13,10 +15,9 @@
         "nkro": true
     },
     "matrix_pins": {
-        "cols": ["B0", "B1", "B2", "B10"],
+        "cols": ["B0", "B1", "A7", "B10"],
         "rows": ["A0", "A1", "A2", "A3", "A4"]
     },
-    "processor": "STM32F411",
     "url": "",
     "usb": {
         "device_version": "1.0.0",
