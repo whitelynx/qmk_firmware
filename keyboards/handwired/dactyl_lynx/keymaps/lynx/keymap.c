@@ -3,6 +3,8 @@
 
 #include QMK_KEYBOARD_H
 
+#define LTG(LAYER) LT(LAYER,TG(LAYER))
+
 #define BASE 0 // default layer
 #define SYMB 1 // symbols
 #define MDIA 2 // media keys
@@ -24,11 +26,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Menu |   `  |   =  |   [  |   ]  |                                  | Left | Down |  Up  | Right| RGui |
  * `----------------------------------'                                  `----------------------------------'
  *                                      ,-------------.  ,-------------.
- *                                      | LGui | LAlt |  | RAlt | RCtrl|
+ *                                      |  L3  |  L2  |  |  L4  |  L1  |
  *                               ,------|------|------|  |------+------+------.
- *                               |      |      |  L3  |  |  L1  |      |      |
- *                               |Backsp|  Del |------|  |------|Enter | Space|
- *                               |ace   |      |  L2  |  |  L4  |      |      |
+ *                               | LAlt |  Del |      |  |      |Enter | RAlt |
+ *                               |------|------|Backsp|  | Space|------|------|
+ *                               | LGui |      |ace   |  |      |      | RCtrl|
  *                               `--------------------'  `--------------------'
  */
 [BASE] = LAYOUT_dactyl(  // layer 0 : default
@@ -38,18 +40,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_LCTL,     KC_A,     KC_O,     KC_E,     KC_U,     KC_I,
           KC_LSFT,  KC_SCLN,     KC_Q,     KC_J,     KC_K,     KC_X,
            KC_APP,   KC_GRV,   KC_EQL,  KC_LBRC,  KC_RBRC,
-                                                            KC_LGUI,  KC_LALT,
-                                                                      LT(MOUS,TG(MOUS)),
-                                                  KC_BSPC,   KC_DEL,  LT(MDIA,TG(MDIA)),
+                                                          LTG(MOUS),LTG(MDIA),
+                                                  KC_LALT,   KC_DEL,
+                                                  KC_LGUI,    KC_NO,  KC_BSPC,
           // right hand
                        KC_6,     KC_7,     KC_8,     KC_9,     KC_0,  KC_BSLS,
                        KC_F,     KC_G,     KC_C,     KC_R,     KC_L,  KC_SLSH,
                        KC_D,     KC_H,     KC_T,     KC_N,     KC_S,  KC_MINS,
                        KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,  KC_RSFT,
                               KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_RGUI,
-          KC_RALT,  KC_RCTL,
-LT(SYMB,TG(SYMB)),
-  LT(NAV,TG(NAV)),  KC_ENT,  KC_SPC
+         LTG(NAV),LTG(SYMB),
+                     KC_ENT,  KC_RALT,
+           KC_SPC,    KC_NO,  KC_RCTL
 ),
 /* Keymap 1: Symbol Layer
  *
@@ -67,8 +69,8 @@ LT(SYMB,TG(SYMB)),
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
- *                               |      |      |      |  |      |  KP  |      |
- *                               |      |      |------|  |------|Enter |      |
+ *                               |      |      |      |  |      |KP Ent|      |
+ *                               |------|------|      |  |      |------|------|
  *                               |      |      |      |  |      |      |      |
  *                               `--------------------'  `--------------------'
  */
@@ -81,7 +83,7 @@ LT(SYMB,TG(SYMB)),
        KC_LSFT,    KC_PERC,  KC_CIRC,  KC_LBRC,  KC_RBRC,  KC_TILD,
        QK_BOOT, UC(0x20AC),  KC_PEQL,   KC_F11,   KC_F12,
                                                            KC_TRNS,  KC_TRNS,
-                                                                     KC_TRNS,
+                                                 KC_TRNS,  KC_TRNS,
                                                  KC_TRNS,  KC_TRNS,  KC_TRNS,
        // right hand
                      KC_F6,    KC_F7,   KC_F8,     KC_F9,   KC_F10,  KC_NUBS,
@@ -90,8 +92,8 @@ LT(SYMB,TG(SYMB)),
                    KC_DOWN,    KC_P1,   KC_P2,     KC_P3,  KC_PCMM,  KC_RSFT,
                              KC_LEFT,   KC_P0,   KC_PDOT,  KC_RGHT,  KC_RGUI,
        KC_TRNS,    KC_TRNS,
-       KC_TRNS,
-       KC_TRNS,    KC_PENT,  KC_TRNS
+                   KC_PENT,  KC_TRNS,
+       KC_TRNS,    KC_TRNS,  KC_TRNS
 ),
 /* Keymap 2: Media (and mouse) keys
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -108,9 +110,9 @@ LT(SYMB,TG(SYMB)),
  *                                      ,-------------.  ,-------------.
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
- *                               |Brwser|      |      |  |      |      |      |
- *                               |Back  |      |------|  |------|      |      |
  *                               |      |      |      |  |      |      |      |
+ *                               |------|------|Brwser|  |      |------|------|
+ *                               |      |      |Back  |  |      |      |      |
  *                               `--------------------'  `--------------------'
  *
  */
@@ -123,8 +125,8 @@ LT(SYMB,TG(SYMB)),
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_BTN1,  KC_BTN2,
                                                          KC_TRNS,  KC_TRNS,
-                                                                   KC_TRNS,
-                                               KC_WBAK,  KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,  KC_WBAK,
        // right hand
                  KC_TRNS,  KC_PAUS,  KC_SCRL,  KC_TRNS,  KC_TRNS,  KC_SLEP,
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
@@ -132,7 +134,7 @@ LT(SYMB,TG(SYMB)),
                  KC_TRNS,  KC_MUTE,  KC_MPLY,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                            KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  KC_TRNS,
        KC_TRNS,  KC_TRNS,
-       KC_TRNS,
+                 KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS
 ),
 /* Keymap 3: Mouse keys
@@ -151,7 +153,7 @@ LT(SYMB,TG(SYMB)),
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
  *                               |      |      |      |  |      |      |      |
- *                               |      |      |------|  |------|      |      |
+ *                               |------|------|      |  |      |------|------|
  *                               |      |      |      |  |      |      |      |
  *                               `--------------------'  `--------------------'
  *
@@ -165,8 +167,8 @@ LT(SYMB,TG(SYMB)),
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_WH_D,
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                                                          KC_TRNS,  KC_TRNS,
-                                                                   KC_TRNS,
-                                               KC_WBAK,  KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,  KC_TRNS,
        // right hand
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
@@ -174,8 +176,8 @@ LT(SYMB,TG(SYMB)),
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                            KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_TRNS,
        KC_TRNS,  KC_TRNS,
-       KC_TRNS,
-       KC_TRNS,  KC_BTN1,  KC_BTN2
+                 KC_TRNS,  KC_TRNS,
+       KC_TRNS,  KC_TRNS,  KC_TRNS
 ),
 /* Keymap 4: Navigation keys
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -193,7 +195,7 @@ LT(SYMB,TG(SYMB)),
  *                                      |      |      |  |      |      |
  *                               ,------|------|------|  |------+------+------.
  *                               |      |      |      |  |      |      |      |
- *                               |      |      |------|  |------|      |      |
+ *                               |------|------|      |  |      |------|------|
  *                               |      |      |      |  |      |      |      |
  *                               `--------------------'  `--------------------'
  *
@@ -207,8 +209,8 @@ LT(SYMB,TG(SYMB)),
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
         QK_RBT,  KC_TRNS,  KC_TRNS,   KC_F23,   KC_F24,
                                                          KC_TRNS,  KC_TRNS,
-                                                                   KC_TRNS,
-                                               KC_WBAK,  KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,
+                                               KC_TRNS,  KC_TRNS,  KC_TRNS,
        // right hand
                   KC_F18,   KC_F19,   KC_F20,   KC_F21,   KC_F22,  KC_SLEP,
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
@@ -216,7 +218,7 @@ LT(SYMB,TG(SYMB)),
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
                            KC_HOME,  KC_PGDN,  KC_PGUP,   KC_END,  KC_TRNS,
        KC_TRNS,  KC_TRNS,
-       KC_TRNS,
+                 KC_TRNS,  KC_TRNS,
        KC_TRNS,  KC_TRNS,  KC_TRNS
 ),
 };
