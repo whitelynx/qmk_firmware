@@ -19,6 +19,9 @@
 //#define NO_ACTION_TAPPING
 #define NO_ACTION_ONESHOT
 
+/* keep JTAG enabled */
+#define NO_JTAG_DISABLE
+
 
 // 68kohm
 #define SPLIT_HAND_PIN B10
