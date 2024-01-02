@@ -25,7 +25,16 @@
         "vid": "0xFEED"
     },
     "split": {
-        "enabled": true
+        "enabled": true,
+        "handedness": {
+            "pin": "B10"
+        },
+        "transport": {
+            "protocol": "serial"
+        },
+        "usb_detect": {
+            "enabled": true
+        }
     },
     "layouts": {
         "LAYOUT_dactyl": {
