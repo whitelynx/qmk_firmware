@@ -1,12 +1,14 @@
 # handwired/dactyl_lynx
 
-![handwired/dactyl_lynx](imgur.com image replace me!)
+![handwired/dactyl_lynx](https://raw.githubusercontent.com/whitelynx/dactyl-keyboard/master/resources/preview.png)
 
-*A short description of the keyboard/project*
+The Dactyl Lynx is a parameterized, split-hand, concave, columnar, ergonomic keyboard.
+
+This is my fork of [the original Dactyl](https://github.com/adereth/dactyl-keyboard).
 
 * Keyboard Maintainer: [David H. Bronke](https://github.com/whitelynx)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
+* Hardware Supported: [STM32F4xx Blackpill](https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1)
+* Hardware Availability: [STM32F4xx Blackpill](https://www.aliexpress.com/item/1005005953179540.html)
 
 Make example for this keyboard (after setting up your build environment):
 
