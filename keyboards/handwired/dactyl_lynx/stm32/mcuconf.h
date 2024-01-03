@@ -5,5 +5,5 @@
 
 #include_next <mcuconf.h>
 
-//#undef RP_SIO_USE_UART0
-//#define RP_SIO_USE_UART0 TRUE
+#undef STM32_SERIAL_USE_USART1
+#define STM32_SERIAL_USE_USART1 TRUE

@@ -1,0 +1,18 @@
+{
+    "keyboard_name": "handwired/dactyl_lynx/stm32",
+    "bootloader": "stm32-dfu",
+    "board": "BLACKPILL_STM32_F411",
+    "processor": "STM32F411",
+    "build": {
+        "firmware_format": "bin"
+    },
+    "split": {
+        "handedness": {
+            "pin": "B10"
+        }
+    },
+    "matrix_pins": {
+        "cols": ["A0", "A1", "A2", "A3", "A4", "A5"],
+        "rows": ["A15", "B3", "B4", "B5", "B6", "B7"]
+    }
+}

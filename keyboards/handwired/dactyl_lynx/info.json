@@ -2,10 +2,17 @@
     "manufacturer": "David H. Bronke",
     "keyboard_name": "handwired/dactyl_lynx",
     "maintainer": "whitelynx",
-    "bootloader": "stm32-dfu",
-    "board": "BLACKPILL_STM32_F411",
-    "processor": "STM32F411",
-    "diode_direction": "COL2ROW",
+    "url": "https://hackaday.io/project/176016-dactyl-lynx",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0xCAD1",
+        "vid": "0xFEED"
+    },
+    "bootloader": "rp2040",
+    "processor": "RP2040",
+    "build": {
+        "firmware_format": "uf2"
+    },
     "features": {
         "bootmagic": false,
         "command": false,
@@ -14,27 +21,30 @@
         "mousekey": true,
         "nkro": true
     },
-    "matrix_pins": {
-        "cols": ["A0", "A1", "A2", "A3", "A4", "A5"],
-        "rows": ["A15", "B3", "B4", "B5", "B6", "B7"]
-    },
-    "url": "",
-    "usb": {
-        "device_version": "1.0.0",
-        "pid": "0xCAD1",
-        "vid": "0xFEED"
-    },
     "split": {
         "enabled": true,
         "handedness": {
-            "pin": "B10"
+            "pin": "GP29"
         },
+        "soft_serial_pin": "GP0",
         "transport": {
-            "protocol": "serial"
+            "protocol": "serial_usart"
         },
         "usb_detect": {
             "enabled": true
         }
+    },
+    "backlight": {
+        "pin": "GP23"
+    },
+    "ws2812": {
+        "pin": "GP23",
+        "driver": "vendor"
+    },
+    "diode_direction": "COL2ROW",
+    "matrix_pins": {
+        "cols": ["GP2", "GP3", "GP4", "GP5", "GP6", "GP7"],
+        "rows": ["GP8", "GP9", "GP10", "GP11", "GP12", "GP13"]
     },
     "layouts": {
         "LAYOUT_dactyl": {
