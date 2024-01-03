@@ -26,7 +26,6 @@
         "handedness": {
             "pin": "GP29"
         },
-        "soft_serial_pin": "GP0",
         "transport": {
             "protocol": "serial_usart"
         },
