@@ -2,15 +2,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "lynx_display.h"
 
 #define LTG(LAYER) LT(LAYER,TG(LAYER))
 
-#define BASE 0 // default layer
-#define SYMB 1 // symbols
-#define MDIA 2 // media keys
-#define MOUS 3 // mouse keys
-#define NAV  4 // navigation keys
-#define QWRT 5 // QWERTY mode
+static bool display_enabled;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -265,10 +261,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
+
+uint8_t current_layer = BASE;
+
 void keyboard_post_init_user(void) {
-  // Customise these values to desired behaviour
-  debug_enable = true;
-  debug_matrix = true;
-  debug_keyboard = true;
-  //debug_mouse = true;
+    display_enabled = false;
+
+    if (is_keyboard_left()) {
+        display_enabled = display_init_kb();
+    }
+
+    // Customise these values to desired behaviour
+    debug_enable = true;
+    debug_matrix = true;
+    debug_keyboard = true;
+    //debug_mouse = true;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    current_layer = get_highest_layer(state);
+    display_process_layer(current_layer);
+
+    return state;
+}
+
+void housekeeping_task_user(void) {
+    display_process_layer(current_layer);
+}
+
+bool shutdown_user(bool jump_to_bootloader) {
+    display_shutdown_kb(jump_to_bootloader);
+
+    // false to not process kb level
+    return false;
 }
