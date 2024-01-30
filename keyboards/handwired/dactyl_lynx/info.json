@@ -33,8 +33,10 @@
             "enabled": true
         }
     },
-    "backlight": {
-        "pin": "GP23"
+    "rgblight": {
+        "led_count": 1,
+        "split": true,
+        "split_count": [1, 1]
     },
     "ws2812": {
         "pin": "GP23",
