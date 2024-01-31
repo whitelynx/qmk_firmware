@@ -9,3 +9,7 @@
     - My own layers, rather different from the original, and way more packed
 * Dec 2023:
   * Added QWERTY layer
+* Jan 2024:
+  * Reworked QWERTY layer
+  * Added LCD display
+  * Reworked thumb clusters to match latest hardware
