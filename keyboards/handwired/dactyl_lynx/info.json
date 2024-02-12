@@ -24,13 +24,19 @@
     "split": {
         "enabled": true,
         "handedness": {
-            "pin": "GP29"
+            "matrix_grid": ["GP12", "GP2"]
         },
         "transport": {
-            "protocol": "serial_usart"
+            "protocol": "serial_usart",
+            "sync": {
+                "layer_state": true
+            },
+            "watchdog": true,
+            "watchdog_timeout": 5000
         },
         "usb_detect": {
-            "enabled": true
+            "enabled": true,
+            "timeout": 2000
         }
     },
     "rgblight": {
@@ -78,11 +84,11 @@
                 {"matrix": [3, 4], "x": 4, "y": 3},
                 {"matrix": [3, 5], "x": 5, "y": 3},
 
-                {"matrix": [4, 0], "x": 0, "y": 4},
-                {"matrix": [4, 1], "x": 1, "y": 4},
-                {"matrix": [4, 2], "x": 2, "y": 4},
-                {"matrix": [4, 3], "x": 3, "y": 4},
-                {"matrix": [4, 4], "x": 4, "y": 4},
+                {"matrix": [4, 1], "x": 0, "y": 4},
+                {"matrix": [4, 2], "x": 1, "y": 4},
+                {"matrix": [4, 3], "x": 2, "y": 4},
+                {"matrix": [4, 4], "x": 3, "y": 4},
+                {"matrix": [4, 5], "x": 4, "y": 4},
 
                 {"matrix": [5, 0], "x": 5, "y": 5.2},
                 {"matrix": [5, 1], "x": 6, "y": 5.2},
