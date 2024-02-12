@@ -36,3 +36,7 @@
 #define LCD_CS_PIN NO_PIN
 #define LCD_DC_PIN GP17
 #define LCD_RST_PIN GP16
+
+
+/* Behavior */
+#define TAPPING_TOGGLE 1

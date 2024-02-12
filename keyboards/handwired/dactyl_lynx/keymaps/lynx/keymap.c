@@ -4,8 +4,6 @@
 #include QMK_KEYBOARD_H
 #include "lynx_display.h"
 
-#define LTG(LAYER) LT(LAYER,TG(LAYER))
-
 static bool display_enabled;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -37,8 +35,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_LCTL,     KC_A,     KC_O,     KC_E,     KC_U,     KC_I,
           KC_LSFT,  KC_SCLN,     KC_Q,     KC_J,     KC_K,     KC_X,
            KC_APP,   KC_GRV,   KC_EQL,  KC_LBRC,  KC_RBRC,
-                                                  KC_LGUI,  KC_LALT,LTG(MOUS),
-                                                    KC_NO,   KC_DEL,LTG(MDIA),
+                                                  KC_LGUI,  KC_LALT, TT(MOUS),
+                                                    KC_NO,   KC_DEL, TT(MDIA),
                                                 LTG(QWRT),  KC_BSPC,
           // right hand
                        KC_6,     KC_7,     KC_8,     KC_9,     KC_0,  KC_BSLS,
@@ -46,8 +44,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        KC_D,     KC_H,     KC_T,     KC_N,     KC_S,  KC_MINS,
                        KC_B,     KC_M,     KC_W,     KC_V,     KC_Z,  KC_RSFT,
                               KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_RGUI,
-        LTG(SYMB),  KC_RALT,  KC_RCTL,
-         LTG(NAV),   KC_ENT,    KC_NO,
+         TT(SYMB),  KC_RALT,  KC_RCTL,
+          TT(NAV),   KC_ENT,    KC_NO,
                      KC_SPC,    KC_NO
 ),
 /* Keymap 1: Symbol Layer
