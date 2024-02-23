@@ -22,8 +22,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               | LGui | LAlt |<MOUS>|  |<SYMB>| RAlt | RCtrl|
  *                               |------|------|------|  |------+------+------|
  *                               |LShift|  Del |<MDIA>|  |<NAV> |Enter |RShift|
- *                               |------|------'------|  |------'------|------|
- *                               |<QWRT>|  Backspace  |  |    Space    |      |
+ *                               |------'------|------|  |------|------'------|
+ *                               |  Backspace  |<QWRT>|  |      |    Space    |
  *                               `--------------------'  `--------------------'
  */
 [BASE] = LAYOUT_dactyl(
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
            KC_APP,   KC_GRV,   KC_EQL,  KC_LBRC,  KC_RBRC,
                                                   KC_LGUI,  KC_LALT, TT(MOUS),
                                                   KC_LSFT,   KC_DEL, TT(MDIA),
-                                                 DF(QWRT),  KC_BSPC,
+                                                  KC_BSPC, DF(QWRT),
           // right hand
                        KC_6,     KC_7,     KC_8,     KC_9,     KC_0,  KC_BSLS,
                        KC_F,     KC_G,     KC_C,     KC_R,     KC_L,  KC_SLSH,
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                               KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_RGUI,
          TT(SYMB),  KC_RALT,  KC_RCTL,
           TT(NAV),   KC_ENT,  KC_RSFT,
-                     KC_SPC,    KC_NO
+                      KC_NO,   KC_SPC
 ),
 /* Keymap 1: Symbol Layer
  *
@@ -63,8 +63,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               |      |      |      |  |      |      |      |
  *                               |------|------|------|  |------+------+------|
  *                               |      |      |      |  |      |KP Ent|      |
- *                               |------|------'------|  |------'------|------|
- *                               |      |             |  |             |      |
+ *                               |------'------|------|  |------|------'------|
+ *                               |             |      |  |      |             |
  *                               `--------------------'  `--------------------'
  */
 // SYMBOLS
@@ -104,8 +104,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               |      |      |      |  |      |      |      |
  *                               |------|------|------|  |------+------+------|
  *                               |      |      |      |  |      |      |      |
- *                               |------|------'------|  |------'------|------|
- *                               |      | Browser Back|  |             |      |
+ *                               |------'------|------|  |------|------'------|
+ *                               | Browser Back|      |  |      |             |
  *                               `--------------------'  `--------------------'
  *
  */
@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_BTN1,  KC_BTN2,
                                                KC_TRNS,  KC_TRNS,  KC_TRNS,
                                                KC_TRNS,  KC_TRNS,  KC_TRNS,
-                                               KC_TRNS,  KC_WBAK,
+                                               KC_WBAK,  KC_TRNS,
        // right hand
                  KC_TRNS,  KC_PAUS,  KC_SCRL,  KC_TRNS,  KC_TRNS,  KC_SLEP,
                  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
@@ -146,8 +146,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               |      |      |      |  |      |      |      |
  *                               |------|------|------|  |------+------+------|
  *                               |      |      |      |  |      |      |      |
- *                               |------|------'------|  |------'------|------|
- *                               |      |             |  |             |      |
+ *                               |------'------|------|  |------|------'------|
+ *                               |             |      |  |      |             |
  *                               `--------------------'  `--------------------'
  *
  */
@@ -188,8 +188,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               |      |      |      |  |      |      |      |
  *                               |------|------|------|  |------+------+------|
  *                               |      |      |      |  |      |      |      |
- *                               |------|------'------|  |------'------|------|
- *                               |      |             |  |             |      |
+ *                               |------'------|------|  |------|------'------|
+ *                               |             |      |  |      |             |
  *                               `--------------------'  `--------------------'
  *
  */
@@ -231,8 +231,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               | LGui | LAlt |<MOUS>|  |<SYMB>| RAlt | RCtrl|
  *                               |------|------|------|  |------+------+------|
  *                               |LShift|  Del |<MDIA>|  |<NAV> |Enter |RShift|
- *                               |------|------'------|  |------'------|------|
- *                               |<BASE>|  Backspace  |  |    Space    |      |
+ *                               |------'------|------|  |------|------'------|
+ *                               |  Backspace  |<BASE>|  |      |    Space    |
  *                               `--------------------'  `--------------------'
  */
 [QWRT] = LAYOUT_dactyl(
@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_APP,   KC_GRV,   KC_EQL,  KC_LBRC,  KC_RBRC,
                                                KC_LGUI,  KC_LALT, TT(MOUS),
                                                KC_LSFT,   KC_DEL, TT(MDIA),
-                                              DF(BASE),  KC_BSPC,
+                                               KC_BSPC, DF(BASE),
         // right hand
                     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,  KC_MINS,
                     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,  KC_BSLS,
@@ -253,7 +253,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_RGUI,
       TT(SYMB),  KC_RALT,  KC_RCTL,
        TT(NAV),   KC_ENT,  KC_RSFT,
-                  KC_SPC,    KC_NO
+                   KC_NO,   KC_SPC
 ),
 };
 
