@@ -26,16 +26,16 @@
 #define WS2812_PIO_USE_PIO1
 
 
-/* SPI */
-#define SPI_DRIVER SPID0
-#define SPI_SCK_PIN GP18
-#define SPI_MOSI_PIN GP19
-#define SPI_MISO_PIN NO_PIN
-
-/* LCD */
-#define LCD_CS_PIN NO_PIN
-#define LCD_DC_PIN GP17
-#define LCD_RST_PIN GP16
+///* SPI */
+//#define SPI_DRIVER SPID0
+//#define SPI_SCK_PIN GP18
+//#define SPI_MOSI_PIN GP19
+//#define SPI_MISO_PIN NO_PIN
+//
+///* LCD */
+//#define LCD_CS_PIN NO_PIN
+//#define LCD_DC_PIN GP17
+//#define LCD_RST_PIN GP16
 
 
 /* Behavior */

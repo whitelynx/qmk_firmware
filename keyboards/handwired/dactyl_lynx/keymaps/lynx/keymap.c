@@ -4,8 +4,6 @@
 #include QMK_KEYBOARD_H
 #include "lynx_display.h"
 
-static bool display_enabled;
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer (default)
  *
@@ -260,6 +258,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
+/*
+static bool display_enabled;
+
 uint8_t current_layer = BASE;
 
 void keyboard_post_init_user(void) {
@@ -293,3 +294,4 @@ bool shutdown_user(bool jump_to_bootloader) {
     // false to not process kb level
     return false;
 }
+*/
