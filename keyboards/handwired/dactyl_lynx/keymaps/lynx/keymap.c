@@ -232,7 +232,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                               |------|------|------|  |------+------+------|
  *                               |LShift|  Del |<MDIA>|  |<NAV> |Enter |RShift|
  *                               |------'------|------|  |------|------'------|
- *                               |  Backspace  |<BASE>|  |      |    Space    |
+ *                               |    Space    |<BASE>|  |      |  Backspace  |
  *                               `--------------------'  `--------------------'
  */
 [QWRT] = LAYOUT_dactyl(
@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_LCTL,   KC_GRV,   KC_EQL,  KC_LBRC,  KC_RBRC,
                                                KC_LGUI,  KC_LALT, TT(MOUS),
                                                KC_LSFT,   KC_DEL, TT(MDIA),
-                                               KC_BSPC, DF(BASE),
+                                                KC_SPC, DF(BASE),
         // right hand
                     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,  KC_MINS,
                     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,  KC_BSLS,
@@ -253,7 +253,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                            KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,  KC_RGUI,
       TT(SYMB),  KC_RALT,  KC_RCTL,
        TT(NAV),   KC_ENT,  KC_RSFT,
-                   KC_NO,   KC_SPC
+                   KC_NO,  KC_BSPC
 ),
 };
 
