@@ -9,7 +9,7 @@
 typedef enum {
     BASE = 0, // default layer
     SYMB,     // symbols
-    MDIA,     // media keys
+    WASD,     // WASD gaming
     MOUS,     // mouse keys
     NAV,      // navigation keys
     QWRT,     // QWERTY mode

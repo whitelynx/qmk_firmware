@@ -50,7 +50,7 @@ __attribute__((weak)) void display_process_layer(uint8_t current_layer) {
             img = qp_load_image_mem(gfx_oled_1_numpad);
             rgblight_setrgb(0x00, 0xFF, 0x00);
             break;
-        case MDIA:
+        case WASD:
             img = qp_load_image_mem(gfx_oled_2_media);
             rgblight_setrgb(0x00, 0x00, 0xFF);
             break;
