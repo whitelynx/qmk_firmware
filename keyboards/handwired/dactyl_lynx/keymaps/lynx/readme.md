@@ -20,4 +20,5 @@
   * Moved 2U keys in thumb clusters to make them easier to press
   * Commented out LCD code, since it slows down the left side of the board noticeably
   * Switched Esc, LCtrl, and Menu on the left side of the board to reduce pinky stretching
-  * Swapped Space and Backspace on the QWERTY layer so it's usable as a left-hand gaming board
+  * ~~Swapped Space and Backspace on the QWERTY layer so it's usable as a left-hand gaming board~~
+  * Replaced Media layer with WASD layer for gaming
