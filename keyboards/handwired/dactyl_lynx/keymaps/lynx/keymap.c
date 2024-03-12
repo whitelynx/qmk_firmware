@@ -264,25 +264,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint8_t current_layer = BASE;
 
-void keyboard_post_init_user(void) {
-    /*
-    display_enabled = false;
-
-    if (is_keyboard_left()) {
-        display_enabled = display_init_kb();
-    }
-    */
-
-    // Customise these values to desired behaviour
-    debug_enable = true;
-    //debug_matrix = true;
-    debug_keyboard = true;
-    //debug_mouse = true;
-
-    rgblight_enable_noeeprom();
-    set_rgb_by_layer(BASE);
-}
-
 __attribute__((weak)) void set_rgb_by_layer(uint8_t current_layer) {
     //dprintf("set_rgb_by_layer: current_layer = %u\n", current_layer);
 
@@ -310,6 +291,25 @@ __attribute__((weak)) void set_rgb_by_layer(uint8_t current_layer) {
             rgblight_setrgb_at(0xFF, 0x00, 0xFF, 0);
             break;
     }
+}
+
+void keyboard_post_init_user(void) {
+    /*
+    display_enabled = false;
+
+    if (is_keyboard_left()) {
+        display_enabled = display_init_kb();
+    }
+    */
+
+    // Customise these values to desired behaviour
+    debug_enable = true;
+    //debug_matrix = true;
+    debug_keyboard = true;
+    //debug_mouse = true;
+
+    rgblight_enable_noeeprom();
+    set_rgb_by_layer(BASE);
 }
 
 bool shutdown_user(bool jump_to_bootloader) {
