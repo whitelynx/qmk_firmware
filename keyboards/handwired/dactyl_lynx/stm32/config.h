@@ -23,9 +23,6 @@
 #define NO_JTAG_DISABLE
 
 
-// 68kohm
-//#define SPLIT_HAND_PIN B10 // now in info.json
-
 /* split connection */
 #define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
 #undef SERIAL_USART_TX_PIN
@@ -53,6 +50,21 @@
 #define MOUSEKEY_MAX_SPEED   7
 #define MOUSEKEY_WHEEL_DELAY 0
 
+
+/* SPI */
+#define SPI_DRIVER SPID1
+#define SPI_SCK_PIN A5
+#define SPI_MOSI_PIN A7
+#define SPI_MISO_PIN NO_PIN
+
+/* LCD */
+#define LCD_CS_PIN NO_PIN
+#define LCD_DC_PIN B1
+#define LCD_RST_PIN B0
+
+
+/* Behavior */
+#define TAPPING_TOGGLE 1
 
 /* Enables This makes it easier for fast typists to use dual-function keys */
 #define PERMISSIVE_HOLD
