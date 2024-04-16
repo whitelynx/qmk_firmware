@@ -3,7 +3,10 @@
 
 #include QMK_KEYBOARD_H
 #include "lynx_display.h"
-#include "rgblight/rgblight.h"
+
+#ifdef MCU_RP
+  #include "rgblight/rgblight.h"
+#endif // MCU_RP
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -264,6 +267,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint8_t current_layer = BASE;
 
+#ifdef MCU_RP
 __attribute__((weak)) void set_rgb_by_layer(uint8_t current_layer) {
     //dprintf("set_rgb_by_layer: current_layer = %u\n", current_layer);
 
@@ -292,6 +296,7 @@ __attribute__((weak)) void set_rgb_by_layer(uint8_t current_layer) {
             break;
     }
 }
+#endif // MCU_RP
 
 void keyboard_post_init_user(void) {
     /*
@@ -308,17 +313,23 @@ void keyboard_post_init_user(void) {
     debug_keyboard = true;
     //debug_mouse = true;
 
+#ifdef MCU_RP
     rgblight_enable_noeeprom();
     set_rgb_by_layer(BASE);
+#endif // MCU_RP
 }
 
 bool shutdown_user(bool jump_to_bootloader) {
     if (jump_to_bootloader) {
+#ifdef MCU_RP
         // red for bootloader
         rgblight_setrgb_at(0xFF, 0x00, 0x00, 0);
+#endif // MCU_RP
     } else {
+#ifdef MCU_RP
         // off for soft reset
         rgblight_setrgb_at(0x00, 0x00, 0x00, 0);
+#endif // MCU_RP
     }
 
     // false to not process kb level
@@ -328,7 +339,9 @@ bool shutdown_user(bool jump_to_bootloader) {
 layer_state_t default_layer_state_set_user(layer_state_t state) {
     current_layer = get_highest_layer(state);
     dprintf("default_layer_state_set_user: current_layer = %u\n", current_layer);
+#ifdef MCU_RP
     set_rgb_by_layer(current_layer);
+#endif // MCU_RP
 
     return state;
 }
@@ -336,7 +349,15 @@ layer_state_t default_layer_state_set_user(layer_state_t state) {
 layer_state_t layer_state_set_user(layer_state_t state) {
     current_layer = get_highest_layer(state);
     dprintf("layer_state_set_user: current_layer = %u\n", current_layer);
+#ifdef MCU_RP
     set_rgb_by_layer(current_layer);
+#endif // MCU_RP
 
     return state;
 }
+
+/*
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    return true;
+}
+*/
