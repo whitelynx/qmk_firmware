@@ -1,0 +1,35 @@
+{
+    "keyboard_name": "handwired/dactyl_lynx/rp2040",
+    "bootloader": "rp2040",
+    "processor": "RP2040",
+    "build": {
+        "firmware_format": "uf2"
+    },
+    "matrix_pins": {
+        "cols": ["GP2", "GP3", "GP4", "GP5", "GP6", "GP7"],
+        "rows": ["GP8", "GP9", "GP10", "GP11", "GP12", "GP13", "GP14"]
+    },
+    "split": {
+        "handedness": {
+            "matrix_grid": ["GP12", "GP2"]
+        },
+        "transport": {
+            "protocol": "serial_usart"
+        }
+    },
+    "rgblight": {
+        "animations": {},
+        "led_count": 1,
+        "split": true,
+        "split_count": [1, 1],
+        "default": {
+            "hue": 222,
+            "val": 63
+        },
+        "driver": "ws2812"
+    },
+    "ws2812": {
+        "pin": "GP23",
+        "driver": "vendor"
+    }
+}

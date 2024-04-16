@@ -1,6 +1,6 @@
 # handwired/dactyl_lynx/stm32
 
-![handwired/dactyl_lynx](https://raw.githubusercontent.com/whitelynx/dactyl-keyboard/master/resources/preview.png)
+![handwired/dactyl_lynx](https://raw.githubusercontent.com/whitelynx/dactyl-lynx-keyboard/main/resources/skeleton-prototype.jpg)
 
 The Dactyl Lynx is a parameterized, split-hand, concave, columnar, ergonomic keyboard.
 

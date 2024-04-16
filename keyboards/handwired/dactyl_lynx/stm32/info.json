@@ -6,13 +6,16 @@
     "build": {
         "firmware_format": "bin"
     },
+    "matrix_pins": {
+        "cols": ["B12", "B13", "B14", "B15", "A8", "A9"],
+        "rows": ["A10", "A11", "A12", "A15", "B3", "B4", "B5"]
+    },
     "split": {
         "handedness": {
-            "pin": "B10"
+            "matrix_grid": ["B3", "B12"]
+        },
+        "transport": {
+            "protocol": "serial_usart"
         }
-    },
-    "matrix_pins": {
-        "cols": ["A0", "A1", "A2", "A3", "A4", "A5"],
-        "rows": ["A15", "B3", "B4", "B5", "B6", "B7"]
     }
 }
