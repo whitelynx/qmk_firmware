@@ -1,10 +1,10 @@
 // Copyright 2023 zzeneg (@zzeneg)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
-#define MODS_SHIFT ((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT)
-#define MODS_CTRL ((get_mods() | get_oneshot_mods()) & MOD_MASK_CTRL)
-#define MODS_ALT ((get_mods() | get_oneshot_mods()) & MOD_MASK_ALT)
-#define MODS_GUI ((get_mods() | get_oneshot_mods()) & MOD_MASK_GUI)
+#define MODS_SHIFT (get_mods() & MOD_MASK_SHIFT)
+#define MODS_CTRL (get_mods() & MOD_MASK_CTRL)
+#define MODS_ALT (get_mods() & MOD_MASK_ALT)
+#define MODS_GUI (get_mods() & MOD_MASK_GUI)
 
 typedef enum {
     BASE = 0, // default layer

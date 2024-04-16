@@ -3,7 +3,7 @@
 
 #include "lynx_display.h"
 #include "qp.h"
-#include "rgblight/rgblight.h"
+#include "platforms/chibios/gpio.h"
 
 #include "generated/oled-0-base.qgf.c"
 #include "generated/oled-0-shift.qgf.c"
@@ -19,8 +19,6 @@ static painter_device_t display;
 bool display_init_kb(void) {
     dprint("display_init_kb - start\n");
 
-    rgblight_enable_noeeprom();
-
     display = qp_st7789_make_spi_device(240, 240, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, 16, 3);
     qp_set_viewport_offsets(display, 0, 0);
 
@@ -29,6 +27,9 @@ bool display_init_kb(void) {
     dprint("display_init_kb - initialised\n");
 
     display_process_layer(BASE);
+
+    setPinOutput(C13);
+    writePinLow(C13);
 
     return true;
 }
@@ -44,31 +45,24 @@ __attribute__((weak)) void display_process_layer(uint8_t current_layer) {
             } else {
                 img = qp_load_image_mem(gfx_oled_0_base);
             }
-            rgblight_setrgb(0xFF, 0x00, 0x00);
             break;
         case SYMB:
             img = qp_load_image_mem(gfx_oled_1_numpad);
-            rgblight_setrgb(0x00, 0xFF, 0x00);
             break;
         case WASD:
             img = qp_load_image_mem(gfx_oled_2_media);
-            rgblight_setrgb(0x00, 0x00, 0xFF);
             break;
         case MOUS:
             img = qp_load_image_mem(gfx_oled_3_mouse);
-            rgblight_setrgb(0x00, 0x7A, 0x7A);
             break;
         case NAV:
             img = qp_load_image_mem(gfx_oled_4_nav);
-            rgblight_setrgb(0x7A, 0x7A, 0x00);
             break;
         case QWRT:
             img = qp_load_image_mem(gfx_oled_5_qwerty);
             //TODO: Shifted QWERTY screen
-            rgblight_setrgb(0x7A, 0x7A, 0x7A);
             break;
         default: // unrecognized layer!
-            rgblight_setrgb(0xFF, 0x00, 0xFF);
             break;
     }
 
@@ -80,10 +74,10 @@ __attribute__((weak)) void display_process_layer(uint8_t current_layer) {
 
 __attribute__((weak)) void display_shutdown_kb(bool jump_to_bootloader) {
     if (jump_to_bootloader) {
-        // red for bootloader
-        rgblight_setrgb(0xFF, 0x00, 0x00);
+        // C13 LED on for bootloader
+        writePinHigh(C13);
     } else {
-        // off for soft reset
-        rgblight_setrgb(0x00, 0x00, 0x00);
+        // C13 LED off for soft reset
+        writePinLow(C13);
     }
 }

@@ -316,21 +316,23 @@ void keyboard_post_init_user(void) {
 #ifdef MCU_RP
     rgblight_enable_noeeprom();
     set_rgb_by_layer(BASE);
+#else
+    display_init_kb();
 #endif // MCU_RP
 }
 
 bool shutdown_user(bool jump_to_bootloader) {
-    if (jump_to_bootloader) {
 #ifdef MCU_RP
+    if (jump_to_bootloader) {
         // red for bootloader
         rgblight_setrgb_at(0xFF, 0x00, 0x00, 0);
-#endif // MCU_RP
     } else {
-#ifdef MCU_RP
         // off for soft reset
         rgblight_setrgb_at(0x00, 0x00, 0x00, 0);
-#endif // MCU_RP
     }
+#else
+    display_shutdown_kb(jump_to_bootloader);
+#endif // MCU_RP
 
     // false to not process kb level
     return false;
@@ -351,13 +353,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     dprintf("layer_state_set_user: current_layer = %u\n", current_layer);
 #ifdef MCU_RP
     set_rgb_by_layer(current_layer);
+#else
+    display_process_layer(current_layer);
 #endif // MCU_RP
 
     return state;
 }
-
-/*
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    return true;
-}
-*/
