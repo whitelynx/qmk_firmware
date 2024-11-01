@@ -15,6 +15,8 @@ typedef enum {
     QWRT,     // QWERTY mode
 } layer_number;
 
+#if MCU_STM32 && FALSE
 bool display_init_kb(void);
 void display_process_layer(uint8_t current_layer);
 void display_shutdown_kb(bool jump_to_bootloader);
+#endif
