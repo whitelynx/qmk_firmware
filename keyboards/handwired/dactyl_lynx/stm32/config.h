@@ -20,15 +20,15 @@
 #define NO_ACTION_ONESHOT
 
 /* keep JTAG enabled */
-#define NO_JTAG_DISABLE
+//#define NO_JTAG_DISABLE
 
 
 /* split connection */
 #define SERIAL_USART_FULL_DUPLEX   // Enable full duplex operation mode.
 #undef SERIAL_USART_TX_PIN
 #undef SERIAL_USART_RX_PIN
-#define SERIAL_USART_TX_PIN B8     // USART TX pin
-#define SERIAL_USART_RX_PIN B9     // USART RX pin
+#define SERIAL_USART_TX_PIN B6     // USART TX pin
+#define SERIAL_USART_RX_PIN B7     // USART RX pin
 
 #define SELECT_SOFT_SERIAL_SPEED 1 // or 0, 2, 3, 4, 5
                                    //  0: 460800 baud
@@ -66,5 +66,5 @@
 /* Behavior */
 #define TAPPING_TOGGLE 1
 
-/* Enables This makes it easier for fast typists to use dual-function keys */
-#define PERMISSIVE_HOLD
+/* This makes it easier for fast typists to use dual-function keys */
+#define HOLD_ON_OTHER_KEY_PRESS

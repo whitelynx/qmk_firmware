@@ -6,6 +6,9 @@
     "build": {
         "firmware_format": "bin"
     },
+    "usb": {
+        "pid": "0xCAD2"
+    },
     "matrix_pins": {
         "cols": ["B12", "B13", "B14", "B15", "A8", "A9"],
         "rows": ["A10", "A11", "A12", "A15", "B3", "B4", "B5"]
